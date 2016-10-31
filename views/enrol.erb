@@ -1,0 +1,57 @@
+<h2>Enrol</h2>
+<p>On this page you can enrol in barbershop</p>
+
+<form action="/enrol" method="POST" role="form">
+
+  <div class="form-group">
+    <label>Your name</label>
+    <input  name="user_name" type="text" class="form-control"  placeholder="Enter your name" value = "<%=@user_name%>">
+  </div>
+
+  <div class="form-group">
+    <label>Your phone</label>
+    <input  name="phone" type="text" class="form-control"  placeholder="Enter your phone" value = "<%=@phone%>">
+  </div>
+
+  <div class="form-group">
+    <label>When you come ?</label>
+    <input  name="data_time" type="text" class="form-control"  placeholder="Enter data and time" value="<%=@data_time%>">
+  </div>
+
+  <div class="form-group">
+    <label>Your the hairdresser</label>
+    <select  name="barber" class="form-control">
+      <option>Jessie Pinkman</option>
+      <option>Walter White</option>
+      <option>Gus Fring</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Paint color</label>
+    <select id="color" name="color">
+      <option value="#7bd148">Green</option>
+      <option value="#5484ed">Bold blue</option>
+      <option value="#a4bdfc">Blue</option>
+      <option value="#46d6db">Turquoise</option>
+      <option value="#7ae7bf">Light green</option>
+      <option value="#51b749">Bold green</option>
+      <option value="#fbd75b">Yellow</option>
+      <option value="#ffb878">Orange</option>
+      <option value="#ff887c">Red</option>
+      <option value="#dc2127">Bold red</option>
+      <option value="#dbadff">Purple</option>
+      <option value="#e1e1e1">Gray</option>
+    </select>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Enrol</button>
+
+</form>
+
+		<script type="text/javascript">
+      $(function() {
+        $("#color").simplecolorpicker();
+      });
+    </script>
