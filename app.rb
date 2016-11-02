@@ -5,7 +5,9 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 def get_db
-	return SQLite3::Database.new'Barbershop_data.sqlite'
+	db = SQLite3::Database.new'Barbershop_data.db'
+	db.results_as_hash = true
+	return db
 end
 
 configure do
@@ -55,4 +57,10 @@ post '/enrol' do
 	[@user_name, @phone, @data_time, @barber, @color]
 
 	erb "OK!, #{@user_name}, #{@phone}, #{@data_time}, #{@barber}, #{@color}"
+end
+
+get '/showusers' do
+	db = get_db
+	@results = db.execute'select * from Users order by id desc'
+  erb :show_users
 end
