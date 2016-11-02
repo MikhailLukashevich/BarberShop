@@ -56,3 +56,7 @@ post '/enrol' do
 
 	erb "OK!, #{@user_name}, #{@phone}, #{@data_time}, #{@barber}, #{@color}"
 end
+
+get '/showusers' do
+  erb :show_users
+end
