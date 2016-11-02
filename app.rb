@@ -24,7 +24,7 @@ end
 
 before do
 	db = get_db
-	@barbers = db.execute'select * from Barbers '
+	@barbers = db.execute'select * from Barbers'
 end
 
 configure do
@@ -59,6 +59,7 @@ get '/enrol' do
   erb :enrol
 end
 
+
 post '/enrol' do
 	@user_name = params[:user_name]
 	@phone = params[:phone]
@@ -80,10 +81,10 @@ post '/enrol' do
 	db.execute 'INSERT INTO Users (user_name, phone, data_time, barber, color) values (?,?,?,?,?)',
 	[@user_name, @phone, @data_time, @barber, @color]
 
-	erb "OK!, #{@user_name}, #{@phone}, #{@data_time}, #{@barber}, #{@color}"
+	erb "<h2>Thank you, you signed</h2>"
 end
 
-get '/showusers' do
+get '/show_users' do
 	db = get_db
 	@results = db.execute 'select * from Users order by id desc'
   erb :show_users
